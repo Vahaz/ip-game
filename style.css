@@ -156,6 +156,7 @@ a {
 .container > .inputs {
     width: 500px;
     display: flex;
+    flex-direction: row;
     justify-content: space-around;
 }
 
