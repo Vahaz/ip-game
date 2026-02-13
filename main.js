@@ -140,8 +140,8 @@ function update(input, index) {
             break;
     }
 
-    if (input.value.length >= input.maxLength) {
-        input.value = input.value.slice(0, input.maxLength);
+    if (input.value.length >= input.max) {
+        input.value = input.value.slice(0, input.max);
     }
 }
 

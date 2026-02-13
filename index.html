@@ -1,7 +1,18 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
     <head>
-        <link href="/style.css" rel="stylesheet" />
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>IP-Game</title>
+        <meta name="description" content="Mini-jeux où il faut trouver l'adresse réseau, diffusion et masque d'une adresse IPv4">
+        <meta name="keywords" content="ipv4, broadcast, network, ip, mask">
+        <meta property="og:title" content="IP-Game">
+        <meta property="og:description" content="Mini-jeux où il faut trouver l'adresse réseau, diffusion et masque d'une adresse IPv4">
+        <meta property="og:image" content="og_image.png">
+        <meta property="og:url" content="https://ip.valentinhrnd.fr">
+        <link rel="icon" type="image/png" href="icon.png">
+        <link href="/style.css" rel="stylesheet">
     </head>
     <body>
         <header>
@@ -15,70 +26,70 @@
             <div class="container">
                 <label>Masque (decimal)</label>
                 <div class="inputs">
-                    <input class="input" type="number" minlength="1" maxlength="3" placeholder="255">
-                    <input class="input" type="number" minlength="1" maxlength="3" placeholder="255">
-                    <input class="input" type="number" minlength="1" maxlength="3" placeholder="255">
-                    <input class="input" type="number" minlength="1" maxlength="3" placeholder="0">
+                    <input class="input" type="number" max="3" placeholder="255">
+                    <input class="input" type="number" max="3" placeholder="255">
+                    <input class="input" type="number" max="3" placeholder="255">
+                    <input class="input" type="number" max="3" placeholder="0">
                 </div>
-                <button class="reveal-btn" title="Voir la réponse" onclick="reveal(0)"><img src="./svg/info.svg"></button>
+                <button class="reveal-btn" title="Voir la réponse" onclick="reveal(0)"><img alt="Voir la réponse" src="./svg/info.svg"></button>
             </div>
             <div class="container">
                 <label>Masque (binaire)</label>
                 <div class="inputs">
-                    <input class="input" type="number" minlength="8" maxlength="8" size="8" placeholder="11111111">
-                    <input class="input" type="number" minlength="8" maxlength="8" size="8" placeholder="11111111">
-                    <input class="input" type="number" minlength="8" maxlength="8" size="8" placeholder="11111111">
-                    <input class="input" type="number" minlength="8" maxlength="8" size="8" placeholder="00000000">
+                    <input class="input" type="number" max="8" placeholder="11111111">
+                    <input class="input" type="number" max="8" placeholder="11111111">
+                    <input class="input" type="number" max="8" placeholder="11111111">
+                    <input class="input" type="number" max="8" placeholder="00000000">
                 </div>
-                <button class="reveal-btn" title="Voir la réponse" onclick="reveal(4)"><img src="./svg/info.svg"></button>
+                <button class="reveal-btn" title="Voir la réponse" onclick="reveal(4)"><img alt="Voir la réponse" src="./svg/info.svg"></button>
             </div>
             <div class="container">
                 <label>Adresse Réseau</label>
                 <div class="inputs">
-                    <input class="input" type="number" minlength="1" maxlength="3" size="3" placeholder="192">
-                    <input class="input" type="number" minlength="1" maxlength="3" size="3" placeholder="168">
-                    <input class="input" type="number" minlength="1" maxlength="3" size="3" placeholder="10">
-                    <input class="input" type="number" minlength="1" maxlength="3" size="3" placeholder="254">
+                    <input class="input" type="number" max="3" placeholder="192">
+                    <input class="input" type="number" max="3" placeholder="168">
+                    <input class="input" type="number" max="3" placeholder="10">
+                    <input class="input" type="number" max="3" placeholder="254">
                 </div>
-                <button class="reveal-btn" title="Voir la réponse" onclick="reveal(8)"><img src="./svg/info.svg"></button>
+                <button class="reveal-btn" title="Voir la réponse" onclick="reveal(8)"><img alt="Voir la réponse" src="./svg/info.svg"></button>
             </div>
             <div class="container">
                 <label>Masque (binaire)</label>
                 <div class="inputs">
-                    <input class="input" type="number" minlength="8" maxlength="8" size="8" placeholder="01100010">
-                    <input class="input" type="number" minlength="8" maxlength="8" size="8" placeholder="01100010">
-                    <input class="input" type="number" minlength="8" maxlength="8" size="8" placeholder="01100010">
-                    <input class="input" type="number" minlength="8" maxlength="8" size="8" placeholder="01100010">
+                    <input class="input" type="number" max="8" placeholder="01100010">
+                    <input class="input" type="number" max="8" placeholder="01100010">
+                    <input class="input" type="number" max="8" placeholder="01100010">
+                    <input class="input" type="number" max="8" placeholder="01100010">
                 </div>
-                <button class="reveal-btn" title="Voir la réponse" onclick="reveal(12)"><img src="./svg/info.svg"></button>
+                <button class="reveal-btn" title="Voir la réponse" onclick="reveal(12)"><img alt="Voir la réponse" src="./svg/info.svg"></button>
             </div>
             <div class="container">
                 <label>Adresse Diffusion</label>
                 <div class="inputs">
-                    <input class="input" type="number" minlength="1" maxlength="3" size="3" placeholder="192">
-                    <input class="input" type="number" minlength="1" maxlength="3" size="3" placeholder="168">
-                    <input class="input" type="number" minlength="1" maxlength="3" size="3" placeholder="10">
-                    <input class="input" type="number" minlength="1" maxlength="3" size="3" placeholder="254">
+                    <input class="input" type="number" max="3" placeholder="192">
+                    <input class="input" type="number" max="3" placeholder="168">
+                    <input class="input" type="number" max="3" placeholder="10">
+                    <input class="input" type="number" max="3" placeholder="254">
                 </div>
-                <button class="reveal-btn" title="Voir la réponse" onclick="reveal(16)"><img src="./svg/info.svg"></button>
+                <button class="reveal-btn" title="Voir la réponse" onclick="reveal(16)"><img alt="Voir la réponse" src="./svg/info.svg"></button>
             </div>
             <div class="container">
                 <label>Masque (binaire)</label>
                 <div class="inputs">
-                    <input class="input" type="number" minlength="8" maxlength="8" size="8" placeholder="01100010">
-                    <input class="input" type="number" minlength="8" maxlength="8" size="8" placeholder="01100010">
-                    <input class="input" type="number" minlength="8" maxlength="8" size="8" placeholder="01100010">
-                    <input class="input" type="number" minlength="8" maxlength="8" size="8" placeholder="01100010">
+                    <input class="input" type="number" max="8" placeholder="01100010">
+                    <input class="input" type="number" max="8" placeholder="01100010">
+                    <input class="input" type="number" max="8" placeholder="01100010">
+                    <input class="input" type="number" max="8" placeholder="01100010">
                 </div>
-                <button class="reveal-btn" title="Voir la réponse" onclick="reveal(20)"><img src="./svg/info.svg"></button>
+                <button class="reveal-btn" title="Voir la réponse" onclick="reveal(20)"><img alt="Voir la réponse" src="./svg/info.svg"></button>
             </div>
             <div id="buttons">
-                <button id="reset" onclick="empty()"><img src="./svg/trash-xmark.svg">VIDER</button>
-                <button id="restart" onclick="reset()"><img src="./svg/rotate-right.svg">RECOMMENCER</button>
+                <button id="reset" onclick="empty()"><img alt="Remettre a zéro les valeurs" src="./svg/trash-xmark.svg">VIDER</button>
+                <button id="restart" onclick="reset()"><img alt="Recommencer le jeu" src="./svg/rotate-right.svg">RECOMMENCER</button>
             </div>
         </main>
         <footer>
-            <p>Site web réalisé par <a href="https://github.com/Vahaz" hreflang="fr">Valentin 'Vahaz' Hernandorena</a></p>
+            <p>Site réalisé par <a href="https://github.com/Vahaz" hreflang="fr">Valentin 'Vahaz' Hernandorena</a></p>
         </footer>
         <script src="./main.js"></script>
     </body>
