@@ -191,6 +191,10 @@ a {
         text-align: center;
     }
 
+    .container > .inputs {
+        flex-direction: column;
+    }
+
     .container input {
         width: 15%;
     }
