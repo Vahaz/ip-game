@@ -1,230 +1,197 @@
 :root {
-    --background: rgb(24, 24, 24);
-    --element: rgb(18, 18, 18);
-    --color: rgb(240, 240, 240);
+    --background: #f8f9fa;
+    --background-details: #c2c1c1;
+    --container: #2c3e50;
+    --container-highlight: #0c0c0c40;
+    --container-color: #ffffff;
+    --border: #cbd5e0;
+    --border-hover: #2c3e50;
+    --button: #8bc34a;
+    --button-hover: #7cb342;
+    --right: #8bc34a;
+    --wrong: #c34a4a;
+    --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --font-color: #333;
+    --number-family: 'Courier New', Courier, monospace;
 
-    font-family: monospace;
+    font-family: var(--font-family);
+}
+
+* {
+    box-sizing: inherit;
+}
+
+html {
+    box-sizing: border-box;
 }
 
 body {
-    background-color: var(--background);
     display: flex;
     flex-direction: column;
-    align-items: center;
-    height: 100vh;
+    min-height: 100vh;
+    height: 100%;
     margin: 0;
-    padding: 0;
+    padding: 0 0 90px 0;
     background-image:
-        linear-gradient(var(--element) 1.5px, transparent 1.5px),
-        linear-gradient(to right, var(--element) 1.5px, var(--background) 1.5px);
+        linear-gradient(var(--background-details) 1.5px, transparent 1.5px),
+        linear-gradient(to right, var(--background-details) 1.5px, var(--background) 1.5px);
     background-size: 30px 30px;
 }
 
 header {
-    color: var(--color);
-    background-color: var(--element);
-    padding: 13px 175px;
-    border-radius: 10px;
-    border: 1px solid var(--color);
-    margin-top: 30px;
-    font-size: larger;
+    color: var(--container-color);
+    background-color: var(--container);
     text-align: center;
+    position: sticky;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    font-size: 1.1rem;
+    box-shadow: 0 2px 10px var(--font-color);
+    z-index: 1;
 }
 
-header > div {
-    display: flex;
-    justify-content: space-around;
+header > #ip {
+    background-color: var(--container-highlight);
+    padding: 5px 10px;
+    border-radius: 10px;
+    border: 1px solid var(--container-highlight);
+    font-weight: bold;
+    font-family: var(--number-family);
 }
 
 main {
-    color: var(--color);
-    background-color: var(--element);
-    padding: 10px 30px;
-    border-radius: 10px;
-    border: 1px solid var(--color);
-    margin-top: 30px;
-    font-size: larger;
-    text-align: center;
-    height: 40vh;
-}
-
-input {
-    background-color: transparent;
-    border: none;
-    border-bottom: 1px solid var(--color);
-    font-size: large;
-    text-align: center;
-    padding: 0;
-    color: var(--color);
-    width: 100px;
-}
-
-footer {
-    position: fixed;
-    bottom: 0;
-    color: var(--color);
-    font-size: large;
-    width: 100%;
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    max-width: 1280px;
+    margin: 40px auto;
+    padding: 20px;
+    gap: 30px;
     background-color: var(--background);
-    border-top: 1px solid var(--color);
-}
-
-a {
-    color: var(--color);
-}
-
-#ip, #cidr {
-    font-weight: bolder;
-    font-size: x-large;
-}
-
-#buttons {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-}
-
-#reset, #restart {
-    font-size: large;
-    font-weight: bolder;
-    color: var(--color);
-    display: flex;
-    padding: 10px;
-    border: none;
     border-radius: 5px;
-    cursor: pointer;
-    border: 1px solid var(--background);
-}
-
-#reset:hover, #restart:hover {
-    filter: blur(0.25px);
-}
-
-#reset {
-    background-color: rgb(194, 20, 20);
-}
-
-#reset:hover {
-    background-color: rgb(252, 20, 20);
-}
-
-#restart {
-    background-color: rgb(139, 0, 139);
-}
-
-#restart:hover {
-    background-color: rgb(214, 0, 214);
-}
-
-#reset > img, #restart > img {
-    width: 20px;
-    padding-right: 10px;
-}
-
-.input.right {
-    color: greenyellow;
-}
-
-.input.wrong {
-    color: red
-}
-
-.reveal-btn {
-    background-color: transparent;
-    border: none;
-    margin: 0;
-    padding: 0;
-    cursor: pointer;
+    border: 2px solid var(--container);
 }
 
 .container {
     display: flex;
-    flex-direction: row;
     align-items: center;
-    height: 15%;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
 }
 
-.container > label {
-    width: 200px;
-    font-weight: 600;
-    font-size: larger;
-    text-align: left;
-    text-decoration: underline;
+.container .input {
+    position: relative;
+    flex: 1;
+    min-width: 200px;
 }
 
-.container > .inputs {
-    width: 500px;
+.input > label {
+    position: absolute;
+    top: -10px;
+    left: 10px;
+    background-color: var(--background);
+    padding: 0px 5px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    color: var(--container);
+    pointer-events: none;
+}
+
+.input > input {
+    width: 100%;
+    padding: 12px 15px;
+    font-size: 1rem;
+    font-family: var(--number-family);
+    border: 2px solid var(--border);
+    border-radius: 5px;
+    background: transparent;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    outline: none;
+}
+
+.input > input:focus {
+    border: 2px solid var(--border-hover);
+}
+
+.input > input.right {
+    border: 2px solid var(--right);
+}
+
+.input > input.wrong {
+    border: 2px solid var(--wrong);
+}
+
+.reveal {
+    background-color: var(--button);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border: none;
+    border-radius: 5px;
     display: flex;
-    flex-direction: row;
-    justify-content: space-around;
+    align-items: center;
+    color: var(--container-color);
+    font-size: 1rem;
+    transition: background-color .2s, transform .2s;
+    gap: 10px;
+    white-space: nowrap;
+    cursor: pointer;
+    font-weight: bold;
+    padding: 12px 16px;
 }
 
-@media screen and (max-width: 768px) {
+.reveal:active {
+    transform: scale(0.98);
+}
 
+.reveal > svg {
+    fill: var(--container-color);
+    width: 22px;
+}
+
+.reveal:hover {
+    background-color: var(--button-hover);
+}
+
+a {
+    color: var(--container-color);
+}
+
+footer {
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background-color: var(--container);
+    color: var(--container-color);
+    width: 100%;
+    box-shadow: 0 -2px 10px var(--font-color);
+    font-size: 1rem;
+    padding: 30px 0;
+    z-index: 1;
+}
+
+footer > p {
+    margin: 0;
+}
+
+@media screen and (max-width: 480px) {
     header {
-        display: flex;
         flex-direction: column;
-        align-items: center;
-        margin: 20px;
-        padding: 10px 20px;
+        gap: 0px;
     }
 
     main {
-        height: auto;
-        margin: 0;
-        padding: 0;
-        width: 90%;
+        border-radius: 0;
+        border: none;
+        border-top: 2px solid var(--container);
+        border-bottom: 2px solid var(--container);
     }
 
-    .container {
-        font-size: 13px;
-        margin-top: 10px;
-        flex-direction: column;
-    }
-
-    .container * {
-        margin-top: 5px;
-    }
-
-    .container label {
-        text-align: center;
-    }
-
-    .container > .inputs {
-        flex-direction: column;
-    }
-
-    .container input {
-        width: 15%;
-    }
-
-    .container > div {
-        display: flex;
-        flex-direction: column;
-    }
-
-    .container button::before {
-        content: "Voir la réponse";
-        color: var(--color);
-        font: 15px monospace;
-        margin-right: 10px;
-    }
-
-    .container button {
-        display: flex;
-        align-items: center;
+    .reveal {
+        width: 100%;
         justify-content: center;
-    }
-
-    footer {
-        font-size: 13px;
-    }
-
-    #buttons {
-        flex-direction: row;
-        justify-content: center;
-        margin-top: 26px;
-        gap: 10px;
     }
 }

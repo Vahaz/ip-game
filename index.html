@@ -4,10 +4,10 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>IP-Game</title>
+        <title>IPv4-Exercice</title>
         <meta name="description" content="Mini-jeux où il faut trouver l'adresse réseau, diffusion et masque d'une adresse IPv4">
-        <meta name="keywords" content="ipv4, broadcast, network, ip, mask">
-        <meta property="og:title" content="IP-Game">
+        <meta name="keywords" content="ipv4, broadcast, network, ip, mask, exercice">
+        <meta property="og:title" content="IPv4-Exercice">
         <meta property="og:description" content="Mini-jeux où il faut trouver l'adresse réseau, diffusion et masque d'une adresse IPv4">
         <meta property="og:image" content="og_image.png">
         <meta property="og:url" content="https://ip.valentinhrnd.fr">
@@ -16,92 +16,49 @@
     </head>
     <body>
         <header>
-            <p>Adresse IPv4 d'une machine du réseau</p>
-            <div>
-                <p id="ip">192.168.10.254</p>
-                <p id="cidr">/24</p>
-            </div>
+            <p>Adresse IPv4 :</p>
+            <p id="ip">192.168.0.0/24</p>
         </header>
         <main>
             <div class="container">
-                <label>Masque (decimal)</label>
-                <div class="inputs">
-                    <div class="inputs">
-                        <input class="input" type="number" max="3" placeholder="255">
-                        <input class="input" type="number" max="3" placeholder="255">
-                        <input class="input" type="number" max="3" placeholder="255">
-                        <input class="input" type="number" max="3" placeholder="0">
-                    </div>
-                    <button class="reveal-btn" title="Voir la réponse" onclick="reveal(0)"><img alt="Voir la réponse" src="./svg/info.svg"></button>
+                <div class="input">
+                    <label for="mask">Adresse du Masque</label>
+                    <input id="mask" type="text" maxlength="15" placeholder="255.255.255.0">
                 </div>
+                <button class="reveal" title="Voir la réponse" data-target="mask">
+                    <svg class="icon-eye" viewBox="0 0 24 24" width="24">
+                        <path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/>
+                    </svg>
+                    Révéler la solution
+                </button>
             </div>
             <div class="container">
-                <label>Masque (binaire)</label>
-                <div class="inputs">
-                    <div class="inputs">
-                        <input class="input" type="number" max="8" placeholder="11111111">
-                        <input class="input" type="number" max="8" placeholder="11111111">
-                        <input class="input" type="number" max="8" placeholder="11111111">
-                        <input class="input" type="number" max="8" placeholder="00000000">
-                    </div>
-                    <button class="reveal-btn" title="Voir la réponse" onclick="reveal(4)"><img alt="Voir la réponse" src="./svg/info.svg"></button>
+                <div class="input">
+                    <label for="network">Adresse IP Réseau</label>
+                    <input id="network" type="text" maxlength="15" placeholder="192.168.0.0">
                 </div>
+                <button class="reveal" title="Voir la réponse" data-target="network">
+                    <svg class="icon-eye" viewBox="0 0 24 24" width="24">
+                        <path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/>
+                    </svg>
+                    Révéler la solution
+                </button>
             </div>
             <div class="container">
-                <label>Adresse Réseau</label>
-                <div class="inputs">
-                    <div class="inputs">
-                        <input class="input" type="number" max="3" placeholder="192">
-                        <input class="input" type="number" max="3" placeholder="168">
-                        <input class="input" type="number" max="3" placeholder="10">
-                        <input class="input" type="number" max="3" placeholder="254">
-                    </div>
-                    <button class="reveal-btn" title="Voir la réponse" onclick="reveal(8)"><img alt="Voir la réponse" src="./svg/info.svg"></button>
+                <div class="input">
+                    <label for="broadcast">Adresse IP Diffusion</label>
+                    <input id="broadcast" type="text" maxlength="15" placeholder="192.168.0.255">
                 </div>
-            </div>
-            <div class="container">
-                <label>Masque (binaire)</label>
-                <div class="inputs">
-                    <div class="inputs">
-                        <input class="input" type="number" max="8" placeholder="01100010">
-                        <input class="input" type="number" max="8" placeholder="01100010">
-                        <input class="input" type="number" max="8" placeholder="01100010">
-                        <input class="input" type="number" max="8" placeholder="01100010">
-                    </div>
-                    <button class="reveal-btn" title="Voir la réponse" onclick="reveal(12)"><img alt="Voir la réponse" src="./svg/info.svg"></button>
-                </div>
-            </div>
-            <div class="container">
-                <label>Adresse Diffusion</label>
-                <div class="inputs">
-                    <div class="inputs">
-                        <input class="input" type="number" max="3" placeholder="192">
-                        <input class="input" type="number" max="3" placeholder="168">
-                        <input class="input" type="number" max="3" placeholder="10">
-                        <input class="input" type="number" max="3" placeholder="254">
-                    </div>
-                    <button class="reveal-btn" title="Voir la réponse" onclick="reveal(16)"><img alt="Voir la réponse" src="./svg/info.svg"></button>
-                </div>
-            </div>
-            <div class="container">
-                <label>Masque (binaire)</label>
-                <div class="inputs">
-                    <div class="inputs">
-                        <input class="input" type="number" max="8" placeholder="01100010">
-                        <input class="input" type="number" max="8" placeholder="01100010">
-                        <input class="input" type="number" max="8" placeholder="01100010">
-                        <input class="input" type="number" max="8" placeholder="01100010">
-                    </div>
-                    <button class="reveal-btn" title="Voir la réponse" onclick="reveal(20)"><img alt="Voir la réponse" src="./svg/info.svg"></button>
-                </div>
-            </div>
-            <div id="buttons">
-                <button id="reset" onclick="empty()"><img alt="Remettre a zéro les valeurs" src="./svg/trash-xmark.svg">VIDER</button>
-                <button id="restart" onclick="reset()"><img alt="Recommencer le jeu" src="./svg/rotate-right.svg">RECOMMENCER</button>
+                <button class="reveal" title="Voir la réponse" data-target="broadcast">
+                    <svg class="icon-eye" viewBox="0 0 24 24" width="24">
+                        <path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/>
+                    </svg>
+                    Révéler la solution
+                </button>
             </div>
         </main>
         <footer>
-            <p>Site réalisé par <a href="https://github.com/Vahaz" hreflang="fr">Valentin 'Vahaz' Hernandorena</a></p>
+            <p>Site réalisé par <a href="https://github.com/Vahaz" hreflang="fr">Valentin 'Vahaz' Hernandorena</a> - © 2026 - <a href="https://opensource.org/license/mit" hreflang="en">Licence MIT</a></p>
         </footer>
         <script src="./main.js"></script>
     </body>
